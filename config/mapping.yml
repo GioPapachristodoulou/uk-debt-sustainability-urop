@@ -1,35 +1,36 @@
 mappings:
-  - canonical: psnd_ex_gdp
+  # --- Public sector net debt (levels) ---
+  - canonical: psnd_ex_bn_gbp
     source_file: Aggregates_Detailed_forecast_tables_March_2025.xlsx
-    sheet_match: "(?i)public sector net debt|psnd"
-    series_match: "(?i)% of gdp"
+    sheet_match: "^6\\.13$"
+    series_match: "^Public sector net debt ex BoE \\(a-c=d\\)$"
 
-  - canonical: psnb_ex_gdp
+  # Optional: total PSND if you want it too
+  - canonical: psnd_total_bn_gbp
     source_file: Aggregates_Detailed_forecast_tables_March_2025.xlsx
-    sheet_match: "(?i)public sector net borrowing|psnb"
-    series_match: "(?i)% of gdp"
+    sheet_match: "^6\\.13$"
+    series_match: "^Public sector net debt\\s*\\(PSND\\)\\(d\\+g\\)$"
 
+  # --- Public sector net borrowing (levels) ---
+  - canonical: psnb_bn_gbp
+    source_file: Aggregates_Detailed_forecast_tables_March_2025.xlsx
+    sheet_match: "^6\\.3$|^6\\.4$|^6\\.5$"
+    series_match: "^Net borrowing$"
+
+  # --- Debt interest (levels) ---
   - canonical: debt_interest_bn_gbp
-    source_file: Debt_interest_Detailed_forecast_tables_March_2025.xlsx
-    sheet_match: "(?i)debt interest"
-    series_match: "(?i)(£|bn|billion)"
-
-  - canonical: primary_balance_gdp
     source_file: Aggregates_Detailed_forecast_tables_March_2025.xlsx
-    sheet_match: "(?i)primary"
-    series_match: "(?i)% of gdp"
+    sheet_match: "^6\\.17$"
+    series_match: "^Debt interest \\(net of APF\\)$|^Debt interest$"
 
+  # --- GDP (nominal, bn) ---
   - canonical: gdp_nominal_bn_gbp
-    source_file: Economy_Detailed_forecast_tables_March_2025.xlsx
-    sheet_match: "(?i)gdp"
-    series_match: "(?i)nominal|current prices"
+    source_file: Expenditure_Detailed_forecast_tables_March_2025.xlsx
+    sheet_match: "^4\\.3$"
+    series_match: "^Nominal GDP \\(£ billion\\)$"
 
+  # --- GDP deflator (index) ---
   - canonical: gdp_deflator_index
-    source_file: Economy_Detailed_forecast_tables_March_2025.xlsx
-    sheet_match: "(?i)gdp deflator"
-    series_match: "(?i)index"
-
-  - canonical: cpi_index
-    source_file: Executive_summary_charts_and_tables_March_2025.xlsx
-    sheet_match: "(?i)cpi|cpih|prices"
-    series_match: "(?i)index"
+    source_file: Expenditure_Detailed_forecast_tables_March_2025.xlsx
+    sheet_match: "^4\\.3$"
+    series_match: "^GDP deflator$"
