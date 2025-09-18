@@ -1,0 +1,13 @@
+# Canonical long format for all processed series
+# Every dataset we build for modeling will conform to these columns.
+columns:
+  - vintage           # e.g., 'OBR_EFO_2025-03', 'ONS_PSF_2025-07'
+  - frequency         # monthly | quarterly | annual
+  - period            # YYYY, YYYY-Qn, or YYYY-MM
+  - variable          # canonical name, e.g., 'psnd_ex_gdp', 'psnb_ex_gdp', 'gdp_nominal', 'cpi', 'rpi', 'primary_balance_gdp'
+  - subvariable       # optional: component (e.g., 'central_govt', 'il_gilt_share', 'policy_measure')
+  - value             # numeric
+  - units             # e.g., 'bn_gbp', 'percent_gdp', 'percent', 'index_2019=100'
+  - source_file       # raw filename
+  - source_sheet      # for xlsx
+  - source_series_id  # if applicable
